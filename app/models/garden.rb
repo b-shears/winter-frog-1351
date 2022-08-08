@@ -7,6 +7,5 @@ class Garden < ApplicationRecord
     .where("plants.days_to_harvest < ?", 100)
     .distinct
     .pluck(:name)
-
   end
 end
