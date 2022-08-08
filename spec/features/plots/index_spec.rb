@@ -2,19 +2,19 @@ require 'rails_helper'
 
 RSpec.describe 'plot index page' do
   before :each do
-    @garden = Garden.create(name: 'Maupin Garen', organic: false)
+    @garden = Garden.create(name: 'Skeeters Garden', organic: false)
 
-    @plot_1 = @garden.plots.create!(number: 8 , size: "small", direction: "west")
+    @plot_1 = @garden.plots.create!(number: 8 , size: "large", direction: "north")
     @plot_2 = @garden.plots.create!(number: 7, size: "medium", direction: "west")
     @plot_3 = @garden.plots.create!(number: 9, size: "small", direction: "east")
     @plot_4 = @garden.plots.create!(number: 1, size: "large", direction: "south")
-    @plot_5 = @garden.plots.create!(number: 3, size: "large", direction: "north")
+    @plot_5 = @garden.plots.create!(number: 3, size: "small", direction: "north")
 
-    @plant_1 = Plant.create!(name: 'Cherokee Purple', description: 'lots of sun', days_to_harvest: 90)
-    @plant_2 = Plant.create!(name: 'Jalapeno', description: 'hot pepper', days_to_harvest: 75)
-    @plant_3 = Plant.create!(name: 'Yukon Gold Potato', description: 'cooler temps and lot of water', days_to_harvest: 110)
-    @plant_4 = Plant.create!(name: 'Basil', description: 'prun before it flowers', days_to_harvest: 30)
-    @plant_5 = Plant.create!(name: 'Calantro', description: 'flowers quickly', days_to_harvest: 20)
+    @plant_1 = Plant.create!(name: 'Black Crim Tomato', description: 'yum', days_to_harvest: 101)
+    @plant_2 = Plant.create!(name: 'Habanero', description: 'spicy', days_to_harvest: 76)
+    @plant_3 = Plant.create!(name: 'Radish', description: 'root vegetable', days_to_harvest: 120)
+    @plant_4 = Plant.create!(name: 'Green Beans', description: 'beans', days_to_harvest: 99)
+    @plant_5 = Plant.create!(name: 'Beets', description: 'beets!', days_to_harvest: 21)
 
     PlotPlant.create!(plot: @plot_1, plant: @plant_1)
     PlotPlant.create!(plot: @plot_1, plant: @plant_2)

@@ -1,10 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Garden do
-  describe 'relationships' do
-    it { should have_many(:plots) }
-  end
-
+RSpec.describe 'gardens show page' do
   before :each do
     @garden = Garden.create(name: 'Skeeters Garden', organic: false)
 
@@ -29,12 +25,16 @@ RSpec.describe Garden do
     PlotPlant.create!(plot: @plot_4, plant: @plant_1)
     PlotPlant.create!(plot: @plot_4, plant: @plant_2)
     PlotPlant.create!(plot: @plot_4, plant: @plant_3)
+
+    visit "/gardens/#{@garden.id}"
   end
 
-  it 'should return plants that take less than 100 days to harvest' do
-    expect(@garden.harvest_below_100_days).to include(@plant_2.name)
-    expect(@garden.harvest_below_100_days).to include(@plant_4.name)
-    expect(@garden.harvest_below_100_days).to include(@plant_5.name)
+  it 'shows all plants in the garden plot that take less than 100 days to harvest' do
+    expect(page).to have_content(@plant_2.name)
+    expect(page).to have_content(@plant_4.name)
+    expect(page).to have_content(@plant_5.name)
+    expect(page).to_not have_content(@plant_1.name)
+    expect(page).to_not have_content(@plant_3.name)
   end
 
 end
