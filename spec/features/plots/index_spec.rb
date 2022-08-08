@@ -25,3 +25,5 @@ RSpec.describe 'plot index page' do
     PlotPlant.create!(plot: @plot_4, plant: @plant_1)
     PlotPlant.create!(plot: @plot_4, plant: @plant_2)
     PlotPlant.create!(plot: @plot_4, plant: @plant_3)
+  end
+end 
